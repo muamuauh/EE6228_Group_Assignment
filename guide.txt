@@ -1,0 +1,25 @@
+Group Project on Process Modeling and Scheduling
+
+
+
+1. Each group consists of up to 5 students. 
+
+2. Each member of a group must submit a duplicated copy of the group report either as a DOC file or a PDF file. 
+
+3. Each report should include the following contents:
+
+(1) Introduction to the use case - what is about?
+
+(2) A mathematical formulation of your scheduling problem.
+
+(3) A solution strategy with necessary tool descriptions (you are free to use any solvers that you can find).
+
+(4) Your solution and discussion 
+
+(5) A simulation demo (optional - will give bonus marks)
+
+(6) References
+
+
+
+Please keep your use case not too complicated.    
