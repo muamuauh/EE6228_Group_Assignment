@@ -170,32 +170,49 @@ $$
 
 Under these constraints, the kitchen scheduling problem is formulated as a mixed-integer optimization problem.
 
-## 4. Solution Strategy
+## 4. Solution Strategy and Tool Description
 
-### 4.1 Optimization Approach
+### 4.1 CP-SAT Optimization Approach
 
-The kitchen scheduling problem includes both continuous time variables and binary sequencing decisions. Therefore, it cannot be solved by a simple analytical formula. In this project, we use an exact enumeration approach implemented in Python for the small-scale case.
+The kitchen scheduling problem includes both time decisions and sequencing decisions. Therefore, it cannot be solved by a simple analytical formula. In this project, the model is solved using Python and Google OR-Tools CP-SAT.
 
-The method enumerates possible operation orders on shared resources such as Prep, Stove 1, and Plate. For each candidate resource order, the earliest feasible start time of each operation is calculated according to precedence and resource-capacity constraints. The schedule with the smallest C<sub>max</sub> is selected as the optimal schedule.
+CP-SAT is suitable for this problem because it can directly model discrete scheduling decisions, precedence constraints, and non-overlap constraints on shared resources. Each kitchen operation is represented as an interval variable with a start time, a fixed processing duration, and an end time. For example, the preparation operation of fried rice is modeled as one interval assigned to the Prep resource.
 
-Because this case contains only five dishes and fourteen operations, exact enumeration is practical and easy to verify. For larger restaurant scheduling problems, the same mathematical model can be solved using optimization solvers such as Google OR-Tools CP-SAT, PuLP with a MIP solver, Gurobi, or CPLEX.
+For each dish, precedence constraints are added to ensure that its operations follow the correct process order. For each resource, a NoOverlap constraint is added to prevent two operations from being processed at the same time. The makespan variable C<sub>max</sub> is linked to the end time of the last operation of every dish, and the solver minimizes C<sub>max</sub>.
 
-### 4.2 Implementation Procedure
+### 4.2 Tool Description
+
+The implementation tool is Google OR-Tools CP-SAT, called from Python. The main modeling components are:
+
+| Component | Role in this project |
+|---|---|
+| `NewIntVar` | Creates integer start-time, end-time, and makespan variables. |
+| `NewIntervalVar` | Creates an operation interval with start time, duration, and end time. |
+| `Add` | Adds precedence constraints and makespan constraints. |
+| `AddNoOverlap` | Ensures that operations using the same resource do not overlap. |
+| `Minimize` | Sets the objective to minimize C<sub>max</sub>. |
+| `CpSolver` | Solves the CP-SAT model and returns operation start and finish times. |
+
+This tool is appropriate for the small restaurant kitchen case and can also be extended to larger cases with more dishes, due dates, alternative resources, setup times, and priority rules.
+
+### 4.3 Implementation Procedure
 
 The implementation procedure is:
 
 1. Define dishes, operations, processing times, and required resources.
-2. Generate feasible operation orders for shared resources.
-3. Apply precedence constraints and resource-capacity constraints.
-4. Calculate the makespan for each feasible schedule.
-5. Select the schedule with the minimum makespan.
-6. Visualize the final schedule using a Gantt chart.
+2. Create start-time, end-time, and interval variables for each operation.
+3. Add precedence constraints for each dish.
+4. Add NoOverlap constraints for Prep, Stove 1, Stove 2, Oven, and Plate.
+5. Define C<sub>max</sub> as the maximum completion time of all dishes.
+6. Minimize C<sub>max</sub> using the CP-SAT solver.
+7. Extract the optimal start and finish times from the solver output.
+8. Visualize the final schedule using a Gantt chart.
 
 ## 5. Results and Discussion
 
 ### 5.1 Optimal Scheduling Result
 
-The optimal schedule found in this case has:
+The optimal schedule found by the Python + Google OR-Tools CP-SAT model has:
 
 $$
 C_{\max} = 31 \text{ minutes}
@@ -205,20 +222,20 @@ The detailed operation schedule is:
 
 | Dish | Operation | Resource | Start | Finish |
 |---|---|---|---:|---:|
-| Grilled chicken | GC-1: preparation | Prep | 0 | 5 |
-| Grilled chicken | GC-2: grilling | Stove 2 | 5 | 17 |
-| Grilled chicken | GC-3: plating | Plate | 17 | 20 |
-| Baked pasta | BP-1: preparation | Prep | 5 | 11 |
-| Baked pasta | BP-2: baking | Oven | 11 | 26 |
-| Baked pasta | BP-3: plating | Plate | 26 | 29 |
-| Fried rice | FR-1: preparation | Prep | 11 | 15 |
-| Fried rice | FR-2: wok cooking | Stove 1 | 15 | 23 |
-| Fried rice | FR-3: plating | Plate | 23 | 25 |
-| Vegetable salad | VS-1: preparation | Prep | 15 | 19 |
-| Vegetable salad | VS-2: plating | Plate | 20 | 22 |
-| Omelette | OM-1: preparation | Prep | 19 | 22 |
-| Omelette | OM-2: pan cooking | Stove 1 | 23 | 28 |
-| Omelette | OM-3: plating | Plate | 29 | 31 |
+| Baked pasta | BP-1: ingredient preparation | Prep | 0 | 6 |
+| Baked pasta | BP-2: baking | Oven | 6 | 21 |
+| Omelette | OM-1: ingredient preparation | Prep | 6 | 9 |
+| Grilled chicken | GC-1: marinating and preparation | Prep | 9 | 14 |
+| Omelette | OM-2: pan cooking | Stove 1 | 9 | 14 |
+| Omelette | OM-3: plating | Plate | 14 | 16 |
+| Fried rice | FR-1: ingredient preparation | Prep | 14 | 18 |
+| Grilled chicken | GC-2: grilling | Stove 2 | 14 | 26 |
+| Vegetable salad | VS-1: washing and cutting | Prep | 18 | 22 |
+| Fried rice | FR-2: wok cooking | Stove 1 | 18 | 26 |
+| Baked pasta | BP-3: plating | Plate | 21 | 24 |
+| Vegetable salad | VS-2: plating | Plate | 24 | 26 |
+| Fried rice | FR-3: plating | Plate | 26 | 28 |
+| Grilled chicken | GC-3: plating | Plate | 28 | 31 |
 
 The Gantt chart below visualizes the schedule.
 
@@ -246,7 +263,7 @@ The utilization values are:
 
 The preparation station has the highest utilization at 70.97%, so it is the main bottleneck in this schedule. This result is reasonable because all five dishes require preparation before cooking or plating. The oven is also relatively important because baked pasta requires a long 15-minute baking operation, but it does not become the main bottleneck because only one dish uses the oven.
 
-The plating station is used intermittently near the end of the schedule. Its workload is only 12 minutes, but poor ordering on the plating station can still delay final dish completion. In the optimal schedule, plating is arranged so that grilled chicken, vegetable salad, fried rice, baked pasta, and omelette can be completed without unnecessary conflicts.
+The plating station is used intermittently in the second half of the schedule. Its workload is only 12 minutes, but poor ordering on the plating station can still delay final dish completion. In the optimal schedule, plating is arranged in the order omelette, baked pasta, vegetable salad, fried rice, and grilled chicken, so the final dish is completed at minute 31 without unnecessary resource conflicts.
 
 ## 6. Simulation Demo
 
@@ -265,7 +282,7 @@ The static Gantt chart in this report can be treated as a visual summary of the 
 
 This project modeled a small restaurant kitchen as a job-shop scheduling problem. Five dishes were divided into ordered operations, and each operation was assigned to a limited kitchen resource. A mathematical optimization model was constructed with precedence constraints, resource-capacity constraints, and a makespan-minimization objective.
 
-Using an exact enumeration strategy for this small case, the optimal makespan was found to be 31 minutes. The result shows that the preparation station is the main bottleneck, while the oven and stove resources are less heavily utilized. The model is simple enough for a course project, but it can be extended to include alternative resources, due dates, setup times, cleaning times, or priority orders.
+Using the Python + Google OR-Tools CP-SAT model, the optimal makespan was found to be 31 minutes. The result shows that the preparation station is the main bottleneck, while the oven and stove resources are less heavily utilized. The model is simple enough for a course project, but it can be extended to include alternative resources, due dates, setup times, cleaning times, or priority orders.
 
 ## 8. References
 

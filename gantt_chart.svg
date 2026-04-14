@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="620" viewBox="0 0 920 620" role="img" aria-labelledby="title desc" style="max-width:100%;height:auto;">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="615" viewBox="0 0 920 615" role="img" aria-labelledby="title desc" style="max-width:100%;height:auto;">
   <title id="title">Gantt chart of the optimal kitchen schedule</title>
-  <desc id="desc">Optimal small restaurant kitchen schedule for five dishes with makespan 31 minutes.</desc>
-  <rect width="920" height="620" fill="#ffffff"/>
-
+  <desc id="desc">Optimal small restaurant kitchen schedule with makespan 31 minutes.</desc>
+  <rect width="920" height="615" fill="#ffffff"/>
   <text x="460" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#222222">Optimal Kitchen Schedule</text>
   <text x="460" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#444444">Makespan = 31 minutes</text>
-
   <g stroke="#e6e6e6" stroke-width="1">
     <line x1="140" y1="95" x2="140" y2="500"/>
     <line x1="240" y1="95" x2="240" y2="500"/>
@@ -16,12 +14,10 @@
     <line x1="740" y1="95" x2="740" y2="500"/>
     <line x1="760" y1="95" x2="760" y2="500"/>
   </g>
-
   <g stroke="#222222" stroke-width="1.5">
     <line x1="140" y1="500" x2="760" y2="500"/>
     <line x1="140" y1="95" x2="140" y2="500"/>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="13" fill="#555555" text-anchor="middle">
     <text x="140" y="523">0</text>
     <text x="240" y="523">5</text>
@@ -33,83 +29,67 @@
     <text x="760" y="523">31</text>
     <text x="450" y="552" font-size="15" fill="#333333">Time (minutes)</text>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#333333" text-anchor="end">
-    <text x="122" y="136">Prep</text>
-    <text x="122" y="216">Stove 1</text>
-    <text x="122" y="296">Stove 2</text>
-    <text x="122" y="376">Oven</text>
-    <text x="122" y="456">Plate</text>
+    <text x="122" y="126">Prep</text>
+    <text x="122" y="206">Stove 1</text>
+    <text x="122" y="286">Stove 2</text>
+    <text x="122" y="366">Oven</text>
+    <text x="122" y="446">Plate</text>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
-    <rect x="140" y="110" width="100" height="48" rx="6" fill="#eb5757"/>
-    <text x="190" y="130" fill="#ffffff">GC-1</text>
-    <text x="190" y="148" fill="#ffffff" font-size="12">0-5</text>
-
-    <rect x="240" y="110" width="120" height="48" rx="6" fill="#27ae60"/>
-    <text x="300" y="130" fill="#ffffff">BP-1</text>
-    <text x="300" y="148" fill="#ffffff" font-size="12">5-11</text>
-
-    <rect x="360" y="110" width="80" height="48" rx="6" fill="#2f80ed"/>
-    <text x="400" y="130" fill="#ffffff">FR-1</text>
-    <text x="400" y="148" fill="#ffffff" font-size="12">11-15</text>
-
-    <rect x="440" y="110" width="80" height="48" rx="6" fill="#00a7a7"/>
-    <text x="480" y="130" fill="#ffffff">VS-1</text>
-    <text x="480" y="148" fill="#ffffff" font-size="12">15-19</text>
-
-    <rect x="520" y="110" width="60" height="48" rx="6" fill="#f2994a"/>
-    <text x="550" y="130" fill="#ffffff">OM-1</text>
-    <text x="550" y="148" fill="#ffffff" font-size="12">19-22</text>
-
-    <rect x="440" y="190" width="160" height="48" rx="6" fill="#2f80ed"/>
-    <text x="520" y="210" fill="#ffffff">FR-2</text>
-    <text x="520" y="228" fill="#ffffff" font-size="12">15-23</text>
-
-    <rect x="600" y="190" width="100" height="48" rx="6" fill="#f2994a"/>
-    <text x="650" y="210" fill="#ffffff">OM-2</text>
-    <text x="650" y="228" fill="#ffffff" font-size="12">23-28</text>
-
-    <rect x="240" y="270" width="240" height="48" rx="6" fill="#eb5757"/>
-    <text x="360" y="290" fill="#ffffff">GC-2</text>
-    <text x="360" y="308" fill="#ffffff" font-size="12">5-17</text>
-
-    <rect x="360" y="350" width="300" height="48" rx="6" fill="#27ae60"/>
-    <text x="510" y="370" fill="#ffffff">BP-2</text>
-    <text x="510" y="388" fill="#ffffff" font-size="12">11-26</text>
-
-    <rect x="480" y="430" width="60" height="48" rx="6" fill="#eb5757"/>
-    <text x="510" y="450" fill="#ffffff">GC-3</text>
-    <text x="510" y="468" fill="#ffffff" font-size="12">17-20</text>
-
-    <rect x="540" y="430" width="40" height="48" rx="6" fill="#00a7a7"/>
-    <text x="560" y="450" fill="#ffffff">VS-2</text>
-    <text x="560" y="468" fill="#ffffff" font-size="12">20-22</text>
-
-    <rect x="600" y="430" width="40" height="48" rx="6" fill="#2f80ed"/>
-    <text x="620" y="450" fill="#ffffff">FR-3</text>
-    <text x="620" y="468" fill="#ffffff" font-size="12">23-25</text>
-
-    <rect x="660" y="430" width="60" height="48" rx="6" fill="#27ae60"/>
-    <text x="690" y="450" fill="#ffffff">BP-3</text>
-    <text x="690" y="468" fill="#ffffff" font-size="12">26-29</text>
-
-    <rect x="720" y="430" width="40" height="48" rx="6" fill="#f2994a"/>
-    <text x="740" y="450" fill="#ffffff">OM-3</text>
-    <text x="740" y="468" fill="#ffffff" font-size="12">29-31</text>
+    <rect x="140" y="110" width="120" height="48" rx="6" fill="#27ae60"/>
+    <text x="200" y="130" fill="#ffffff">BP-1</text>
+    <text x="200" y="148" fill="#ffffff" font-size="12">0-6</text>
+    <rect x="260" y="350" width="300" height="48" rx="6" fill="#27ae60"/>
+    <text x="410" y="370" fill="#ffffff">BP-2</text>
+    <text x="410" y="388" fill="#ffffff" font-size="12">6-21</text>
+    <rect x="260" y="110" width="60" height="48" rx="6" fill="#f2994a"/>
+    <text x="290" y="130" fill="#ffffff">OM-1</text>
+    <text x="290" y="148" fill="#ffffff" font-size="12">6-9</text>
+    <rect x="320" y="110" width="100" height="48" rx="6" fill="#eb5757"/>
+    <text x="370" y="130" fill="#ffffff">GC-1</text>
+    <text x="370" y="148" fill="#ffffff" font-size="12">9-14</text>
+    <rect x="320" y="190" width="100" height="48" rx="6" fill="#f2994a"/>
+    <text x="370" y="210" fill="#ffffff">OM-2</text>
+    <text x="370" y="228" fill="#ffffff" font-size="12">9-14</text>
+    <rect x="420" y="430" width="40" height="48" rx="6" fill="#f2994a"/>
+    <text x="440" y="450" fill="#ffffff">OM-3</text>
+    <text x="440" y="468" fill="#ffffff" font-size="12">14-16</text>
+    <rect x="420" y="110" width="80" height="48" rx="6" fill="#2f80ed"/>
+    <text x="460" y="130" fill="#ffffff">FR-1</text>
+    <text x="460" y="148" fill="#ffffff" font-size="12">14-18</text>
+    <rect x="420" y="270" width="240" height="48" rx="6" fill="#eb5757"/>
+    <text x="540" y="290" fill="#ffffff">GC-2</text>
+    <text x="540" y="308" fill="#ffffff" font-size="12">14-26</text>
+    <rect x="500" y="110" width="80" height="48" rx="6" fill="#00a7a7"/>
+    <text x="540" y="130" fill="#ffffff">VS-1</text>
+    <text x="540" y="148" fill="#ffffff" font-size="12">18-22</text>
+    <rect x="500" y="190" width="160" height="48" rx="6" fill="#2f80ed"/>
+    <text x="580" y="210" fill="#ffffff">FR-2</text>
+    <text x="580" y="228" fill="#ffffff" font-size="12">18-26</text>
+    <rect x="560" y="430" width="60" height="48" rx="6" fill="#27ae60"/>
+    <text x="590" y="450" fill="#ffffff">BP-3</text>
+    <text x="590" y="468" fill="#ffffff" font-size="12">21-24</text>
+    <rect x="620" y="430" width="40" height="48" rx="6" fill="#00a7a7"/>
+    <text x="640" y="450" fill="#ffffff">VS-2</text>
+    <text x="640" y="468" fill="#ffffff" font-size="12">24-26</text>
+    <rect x="660" y="430" width="40" height="48" rx="6" fill="#2f80ed"/>
+    <text x="680" y="450" fill="#ffffff">FR-3</text>
+    <text x="680" y="468" fill="#ffffff" font-size="12">26-28</text>
+    <rect x="700" y="430" width="60" height="48" rx="6" fill="#eb5757"/>
+    <text x="730" y="450" fill="#ffffff">GC-3</text>
+    <text x="730" y="468" fill="#ffffff" font-size="12">28-31</text>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="13" fill="#333333">
-    <rect x="145" y="585" width="14" height="14" rx="3" fill="#2f80ed"/>
-    <text x="167" y="597">Fried rice</text>
-    <rect x="255" y="585" width="14" height="14" rx="3" fill="#eb5757"/>
-    <text x="277" y="597">Grilled chicken</text>
-    <rect x="405" y="585" width="14" height="14" rx="3" fill="#27ae60"/>
-    <text x="427" y="597">Baked pasta</text>
-    <rect x="545" y="585" width="14" height="14" rx="3" fill="#00a7a7"/>
-    <text x="567" y="597">Vegetable salad</text>
-    <rect x="700" y="585" width="14" height="14" rx="3" fill="#f2994a"/>
-    <text x="722" y="597">Omelette</text>
+    <rect x="145" y="568" width="14" height="14" rx="3" fill="#2f80ed"/>
+    <text x="167" y="580">Fried rice</text>
+    <rect x="290" y="568" width="14" height="14" rx="3" fill="#eb5757"/>
+    <text x="312" y="580">Grilled chicken</text>
+    <rect x="435" y="568" width="14" height="14" rx="3" fill="#27ae60"/>
+    <text x="457" y="580">Baked pasta</text>
+    <rect x="580" y="568" width="14" height="14" rx="3" fill="#00a7a7"/>
+    <text x="602" y="580">Vegetable salad</text>
+    <rect x="725" y="568" width="14" height="14" rx="3" fill="#f2994a"/>
+    <text x="747" y="580">Omelette</text>
   </g>
 </svg>

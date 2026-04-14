@@ -1,0 +1,15 @@
+dish,operation,resource,duration,start,finish
+Baked pasta,BP-1: ingredient preparation,Prep,6,0,6
+Baked pasta,BP-2: baking,Oven,15,6,21
+Omelette,OM-1: ingredient preparation,Prep,3,6,9
+Grilled chicken,GC-1: marinating and preparation,Prep,5,9,14
+Omelette,OM-2: pan cooking,Stove 1,5,9,14
+Omelette,OM-3: plating,Plate,2,14,16
+Fried rice,FR-1: ingredient preparation,Prep,4,14,18
+Grilled chicken,GC-2: grilling,Stove 2,12,14,26
+Vegetable salad,VS-1: washing and cutting,Prep,4,18,22
+Fried rice,FR-2: wok cooking,Stove 1,8,18,26
+Baked pasta,BP-3: plating,Plate,3,21,24
+Vegetable salad,VS-2: plating,Plate,2,24,26
+Fried rice,FR-3: plating,Plate,2,26,28
+Grilled chicken,GC-3: plating,Plate,3,28,31

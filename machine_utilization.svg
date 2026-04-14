@@ -2,10 +2,8 @@
   <title id="title">Resource utilization chart</title>
   <desc id="desc">Resource utilization rates for the small restaurant kitchen schedule.</desc>
   <rect width="820" height="480" fill="#ffffff"/>
-
   <text x="410" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#222222">Kitchen Resource Utilization</text>
   <text x="410" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#555555">Utilization = resource workload / 31-minute makespan</text>
-
   <g stroke="#e7e7e7" stroke-width="1">
     <line x1="170" y1="105" x2="170" y2="385"/>
     <line x1="270" y1="105" x2="270" y2="385"/>
@@ -14,12 +12,10 @@
     <line x1="570" y1="105" x2="570" y2="385"/>
     <line x1="670" y1="105" x2="670" y2="385"/>
   </g>
-
   <g stroke="#222222" stroke-width="1.5">
     <line x1="170" y1="385" x2="670" y2="385"/>
     <line x1="170" y1="105" x2="170" y2="385"/>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="13" fill="#555555" text-anchor="middle">
     <text x="170" y="410">0%</text>
     <text x="270" y="410">20%</text>
@@ -29,7 +25,6 @@
     <text x="670" y="410">100%</text>
     <text x="420" y="440" font-size="15" fill="#333333">Utilization rate</text>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#333333" text-anchor="end">
     <text x="150" y="137">Prep</text>
     <text x="150" y="187">Stove 1</text>
@@ -37,26 +32,21 @@
     <text x="150" y="287">Oven</text>
     <text x="150" y="337">Plate</text>
   </g>
-
   <g font-family="Arial, sans-serif" font-size="14" font-weight="700">
-    <rect x="170" y="115" width="354.85" height="34" rx="6" fill="#eb5757"/>
-    <text x="538" y="138" fill="#222222">70.97%</text>
+    <rect x="170" y="115" width="354.84" height="34" rx="6" fill="#eb5757"/>
+    <text x="538.84" y="138" fill="#222222">70.97%</text>
     <text x="185" y="138" fill="#ffffff">22 / 31 min</text>
-
-    <rect x="170" y="165" width="209.70" height="34" rx="6" fill="#2f80ed"/>
-    <text x="395" y="188" fill="#222222">41.94%</text>
+    <rect x="170" y="165" width="209.68" height="34" rx="6" fill="#2f80ed"/>
+    <text x="393.68" y="188" fill="#222222">41.94%</text>
     <text x="185" y="188" fill="#ffffff">13 / 31 min</text>
-
     <rect x="170" y="215" width="193.55" height="34" rx="6" fill="#27ae60"/>
-    <text x="379" y="238" fill="#222222">38.71%</text>
+    <text x="377.55" y="238" fill="#222222">38.71%</text>
     <text x="185" y="238" fill="#ffffff">12 / 31 min</text>
-
-    <rect x="170" y="265" width="241.95" height="34" rx="6" fill="#00a7a7"/>
-    <text x="427" y="288" fill="#222222">48.39%</text>
+    <rect x="170" y="265" width="241.94" height="34" rx="6" fill="#00a7a7"/>
+    <text x="425.94" y="288" fill="#222222">48.39%</text>
     <text x="185" y="288" fill="#ffffff">15 / 31 min</text>
-
     <rect x="170" y="315" width="193.55" height="34" rx="6" fill="#f2994a"/>
-    <text x="379" y="338" fill="#222222">38.71%</text>
+    <text x="377.55" y="338" fill="#222222">38.71%</text>
     <text x="185" y="338" fill="#ffffff">12 / 31 min</text>
   </g>
 </svg>
