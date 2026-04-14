@@ -1,0 +1,59 @@
+# Process Modeling and Scheduling Report
+
+This folder contains the Markdown report and figures for the group project on process modeling and scheduling.
+
+## Files
+
+| File | Description |
+|---|---|
+| `guide.txt` | Original assignment requirements. |
+| `draft_04142222.pdf` | Earlier PDF draft used as reference material. |
+| `draft.md` | Final Markdown report draft. This is the main file to edit and export. |
+| `gantt_chart.svg` | Gantt chart for the optimal kitchen schedule. |
+| `machine_utilization.svg` | Resource utilization chart for the kitchen schedule. |
+
+## Report Topic
+
+The report models meal preparation scheduling in a small restaurant kitchen. The kitchen prepares five dishes:
+
+1. Fried rice
+2. Grilled chicken
+3. Baked pasta
+4. Vegetable salad
+5. Omelette
+
+The objective is to minimize the makespan, which is the completion time of the last finished dish. The optimized schedule has:
+
+$$
+C_{\max} = 31 \text{ minutes}
+$$
+
+
+## Formatting Notes
+
+To avoid Typora rendering issues, inline mathematical symbols in the text and tables use HTML subscript format, such as `M<sub>1</sub>` and `C<sub>max</sub>`.
+
+Display formulas use Markdown math blocks:
+
+```md
+$$
+C_{\max} = 31 \text{ minutes}
+$$
+```
+
+If formulas are not rendered correctly in Typora, enable math rendering in Typora's settings.
+
+## Final Checklist
+
+Before submission, check the following:
+
+1. Replace `[Name 1]`, `[Name 2]`, etc. in `draft.md` with the actual group members.
+2. Verify that both figures appear in the exported PDF.
+3. Confirm that the report includes all required sections:
+   - Introduction to the use case
+   - Mathematical formulation
+   - Solution strategy and tool description
+   - Solution and discussion
+   - Simulation demo
+   - References
+4. Submit the same final PDF or DOC file individually for each group member, as required by the assignment guide.
