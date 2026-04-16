@@ -8,9 +8,9 @@
 
 ### 1.1 Background and Project Objective
 
-Scheduling problems are common in systems where multiple tasks must share limited resources. Besides manufacturing and logistics, similar problems also appear in restaurant kitchens, where different dishes compete for preparation and cooking resources. In this project, we model a small restaurant kitchen as a scheduling system and study how to arrange dish-preparation operations efficiently.
+Scheduling problems are common in systems where multiple tasks must share limited resources [1], [2]. Besides manufacturing and logistics, similar problems also appear in restaurant kitchens, where different dishes compete for preparation and cooking resources. In this project, we model a small restaurant kitchen as a scheduling system and study how to arrange dish-preparation operations efficiently.
 
-The objective of this project is to formulate the meal preparation process as an optimization problem and determine a schedule that minimizes the overall completion time, also called the makespan. Through this use case, we show how a practical kitchen workflow can be transformed into a standard scheduling problem and solved using mathematical optimization methods.
+The objective of this project is to formulate the meal preparation process as an optimization problem and determine a schedule that minimizes the overall completion time, also called the makespan [1]. Through this use case, we show how a practical kitchen workflow can be transformed into a standard scheduling problem and solved using mathematical optimization methods.
 
 ### 1.2 Use Case and Assumptions
 
@@ -25,7 +25,7 @@ To keep the problem manageable, the following assumptions are made:
 5. Each resource can process at most one operation at a time.
 6. The resource assigned to each operation is fixed in the input data.
 
-Under these assumptions, the kitchen scheduling problem can be modeled as a small job-shop scheduling problem with precedence constraints and resource capacity constraints.
+Under these assumptions, the kitchen scheduling problem can be modeled as a small job-shop scheduling problem with precedence constraints and resource capacity constraints [3], [4].
 
 ## 2. Input Data
 
@@ -168,17 +168,17 @@ $$
 x_{ab} \in \{0,1\}
 $$
 
-Under these constraints, the kitchen scheduling problem is formulated as a mixed-integer optimization problem.
+Under these constraints, the kitchen scheduling problem is formulated as a mixed-integer optimization problem following standard scheduling-modeling ideas [1], [2].
 
 ## 4. Solution Strategy and Tool Description
 
 ### 4.1 CP-SAT Optimization Approach
 
-The kitchen scheduling problem includes both time decisions and sequencing decisions. Therefore, it cannot be solved by a simple analytical formula. In this project, the model is solved using Python and Google OR-Tools CP-SAT.
+The kitchen scheduling problem includes both time decisions and sequencing decisions. Therefore, it cannot be solved by a simple analytical formula. In this project, the model is solved using Python and Google OR-Tools CP-SAT [5], [6].
 
-CP-SAT is suitable for this problem because it can directly model discrete scheduling decisions, precedence constraints, and non-overlap constraints on shared resources. Each kitchen operation is represented as an interval variable with a start time, a fixed processing duration, and an end time. For example, the preparation operation of fried rice is modeled as one interval assigned to the Prep resource.
+CP-SAT is suitable for this problem because it can directly model discrete scheduling decisions, precedence constraints, and non-overlap constraints on shared resources [5], [6]. Each kitchen operation is represented as an interval variable with a start time, a fixed processing duration, and an end time. For example, the preparation operation of fried rice is modeled as one interval assigned to the Prep resource.
 
-For each dish, precedence constraints are added to ensure that its operations follow the correct process order. For each resource, a NoOverlap constraint is added to prevent two operations from being processed at the same time. The makespan variable C<sub>max</sub> is linked to the end time of the last operation of every dish, and the solver minimizes C<sub>max</sub>.
+For each dish, precedence constraints are added to ensure that its operations follow the correct process order. For each resource, a NoOverlap constraint is added to prevent two operations from being processed at the same time, which is consistent with the job-shop scheduling example in OR-Tools [4]. The makespan variable C<sub>max</sub> is linked to the end time of the last operation of every dish, and the solver minimizes C<sub>max</sub>.
 
 ### 4.2 Tool Description
 
@@ -193,7 +193,7 @@ The implementation tool is Google OR-Tools CP-SAT, called from Python. The main 
 | `Minimize` | Sets the objective to minimize C<sub>max</sub>. |
 | `CpSolver` | Solves the CP-SAT model and returns operation start and finish times. |
 
-This tool is appropriate for the small restaurant kitchen case and can also be extended to larger cases with more dishes, due dates, alternative resources, setup times, and priority rules.
+This tool is appropriate for the small restaurant kitchen case and can also be extended to larger cases with more dishes, due dates, alternative resources, setup times, and priority rules [3], [4].
 
 ### 4.3 Implementation Procedure
 
@@ -280,13 +280,20 @@ The static Gantt chart in this report can be treated as a visual summary of the 
 
 ## 7. Conclusion
 
-This project modeled a small restaurant kitchen as a job-shop scheduling problem. Five dishes were divided into ordered operations, and each operation was assigned to a limited kitchen resource. A mathematical optimization model was constructed with precedence constraints, resource-capacity constraints, and a makespan-minimization objective.
+This project modeled a small restaurant kitchen as a job-shop scheduling problem. Five dishes were divided into ordered operations, and each operation was assigned to a limited kitchen resource. A mathematical optimization model was constructed with precedence constraints, resource-capacity constraints, and a makespan-minimization objective [1], [4].
 
-Using the Python + Google OR-Tools CP-SAT model, the optimal makespan was found to be 31 minutes. The result shows that the preparation station is the main bottleneck, while the oven and stove resources are less heavily utilized. The model is simple enough for a course project, but it can be extended to include alternative resources, due dates, setup times, cleaning times, or priority orders.
+Using the Python + Google OR-Tools CP-SAT model, the optimal makespan was found to be 31 minutes. The result shows that the preparation station is the main bottleneck, while the oven and stove resources are less heavily utilized. The model is simple enough for a course project, but it can be extended to include alternative resources, due dates, setup times, cleaning times, or priority orders [3], [5].
 
 ## 8. References
 
-1. Pinedo, M. L. (2016). *Scheduling: Theory, Algorithms, and Systems*. Springer.
-2. Google OR-Tools Documentation. *CP-SAT Solver*. https://developers.google.com/optimization/cp/cp_solver
-3. PuLP Documentation. *A Linear Programming Modeler in Python*. https://coin-or.github.io/pulp/
-4. Course guide: *Group Project on Process Modeling and Scheduling*.
+[1] Pinedo, M. L. (2016). *Scheduling: Theory, Algorithms, and Systems*. Springer.
+
+[2] Brucker, P. (2007). *Scheduling Algorithms*. Springer.
+
+[3] Google OR-Tools. *Scheduling Overview*. https://developers.google.com/optimization/scheduling
+
+[4] Google OR-Tools. *The Job Shop Problem*. https://developers.google.com/optimization/scheduling/job_shop
+
+[5] Google OR-Tools. *CP-SAT Solver*. https://developers.google.com/optimization/cp/cp_solver
+
+[6] Google OR-Tools. *How to Cite OR-Tools and Its Solvers*. https://developers.google.com/optimization/support/cite
